@@ -1,27 +1,39 @@
 /* ============================================================
-   projects.js — Data-driven projects with L1/L2 Runbook metadata
+   projects.js — Data-driven projects for Cloud Engineer & Cloud Architect
    ============================================================ */
 const projects = [
   {
-    badge: "LAB-01 // BREAK-FIX DRILL",
-    title: "L1/L2 Troubleshooting Runbook",
+    badge: "IAC-01 // CLOUD ARCHITECTURE",
+    title: "Infrastructure as Code with Terraform",
+    metric: "Multi-Tier AWS VPC & Compute",
+    problem:
+      "Manual console provisioning causes configuration drift, security oversights, and unrepeatable deployments across cloud environments.",
+    solution:
+      "Architected and provisioned an entire AWS production stack using modular Terraform: custom multi-tier VPC (public & private subnets, route tables, Internet Gateway), EC2 instances, S3 storage, and least-privilege IAM policies as version-controlled code.",
+    tech: ["Terraform", "AWS VPC", "AWS EC2", "IAM", "S3", "Security Groups"],
+    github: "https://github.com/jimitshah07",
+    docs: "https://github.com/jimitshah07",
+  },
+  {
+    badge: "OPS-02 // INCIDENT TRIAGE",
+    title: "Production Incident Diagnosis & Runbook Lab",
     metric: "MTTR: < 3 min resolution",
     problem:
-      "Production-like incidents (nginx crash, SSH lockout via stale Security Group rule, disk-full condition) need fast, repeatable root-cause resolution — but fresh engineers rarely possess documented operational experience.",
+      "Production-grade outages (crashed web daemons, SSH lockout from stale Security Group rules, disk saturation) require fast, methodical root-cause analysis rather than ad-hoc trial and error.",
     solution:
-      "Engineered an AWS EC2 (Ubuntu t2.micro) break/fix lab. Simulated real incidents, measured resolution times, and documented symptoms, diagnosis commands, root cause, fix, and post-incident verification in a version-controlled runbook.",
+      "Engineered an AWS EC2 (Ubuntu) break/fix lab simulating live enterprise failures. Timed each resolution drill under 3 minutes and authored exhaustive runbooks detailing symptoms, diagnostic commands, root cause, fix, and post-incident verification.",
     tech: ["AWS EC2", "Ubuntu", "Nginx", "Security Groups", "Bash", "systemd"],
     github: "https://github.com/jimitshah07/l1l2-troubleshooting-runbook",
     docs: "https://github.com/jimitshah07/l1l2-troubleshooting-runbook#readme",
   },
   {
-    badge: "SYS-02 // AUTOMATION & ALERTING",
-    title: "System Health Monitor & Dashboard",
+    badge: "MON-03 // AUTOMATION & ALERTING",
+    title: "System Health Observability & Alerting Engine",
     metric: "Slack & SMTP Alerting",
     problem:
-      "Manual system checks fail to catch intermittent resource exhaustion, leading to unpredicted service outages and delayed incident response.",
+      "Silent host resource exhaustion (CPU spikes, memory leaks, I/O bottlenecks) leads to unpredicted application downtime without proactive alerting.",
     solution:
-      "Developed a Python + psutil monitoring daemon logging CPU, memory, disk, and network I/O. Added automatic threshold-based alerts via SMTP email and Slack incoming webhooks, paired with a lightweight Flask operational dashboard.",
+      "Engineered a scheduled Python daemon utilizing psutil to capture CPU, memory, disk, and network metrics. Integrated automated threshold-based alerts via Slack webhooks and SMTP email, paired with a lightweight Flask operational dashboard.",
     tech: ["Python", "psutil", "Flask", "Slack Webhook", "SMTP", "Linux Cron"],
     github: "https://github.com/jimitshah07/system-health-monitor",
     docs: "https://github.com/jimitshah07/system-health-monitor#readme",
@@ -55,7 +67,7 @@ function renderProjects() {
       </div>
       <div class="card-body">
         <div class="case-section">
-          <span class="case-label">Problem</span>
+          <span class="case-label">Architecture Problem</span>
           <p>${p.problem}</p>
         </div>
         <div class="case-section">
@@ -82,7 +94,7 @@ function renderProjects() {
             <line x1="16" y1="17" x2="8" y2="17"/>
             <polyline points="10 9 9 9 8 9"/>
           </svg>
-          Runbook / Docs
+          Architecture / Docs
         </a>
       </div>
     </article>`
