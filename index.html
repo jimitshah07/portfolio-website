@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jimit — Cloud Support / L1-L2 Engineer portfolio. AWS, Linux, Networking, Python." />
-  <title>Jimit | Cloud Support Engineer</title>
+  <meta name="description" content="Jimit Shah — Cloud Support / L1-L2 Engineer. Hands-on AWS labs, Linux break/fix runbooks, system health monitoring, and networking." />
+  <title>Jimit Shah | Cloud Support &amp; L1/L2 Engineer</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Favicon (cloud emoji fallback) -->
+  <!-- Cloud Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☁️</text></svg>" />
 
   <link rel="stylesheet" href="styles.css" />
@@ -21,67 +21,89 @@
   <!-- ==================== NAVIGATION ==================== -->
   <nav class="navbar" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <span class="logo-accent">&lt;</span>Jimit<span class="logo-accent"> /&gt;</span>
+      <a href="#" class="nav-logo" aria-label="Homepage">
+        <span class="logo-terminal-prompt">&gt;</span>
+        <span class="logo-name">jimit.cloud</span>
+        <span class="logo-cursor">_</span>
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
+      <div class="nav-right">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
 
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certs</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li>
-          <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode">
-            <!-- Sun icon -->
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-            <!-- Moon icon -->
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          </button>
-        </li>
-      </ul>
+        <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark and light mode">
+          <!-- Sun icon -->
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- Moon icon -->
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- ==================== HERO ==================== -->
   <header class="hero" id="hero">
-    <div class="hero-content">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-glow-blob" aria-hidden="true"></div>
+
+    <div class="container hero-container">
       <div class="hero-badge">
-        <span class="pulse"></span>
-        Open to opportunities
+        <span class="status-indicator">
+          <span class="status-ping"></span>
+          <span class="status-dot"></span>
+        </span>
+        <span class="badge-text">Available for L1/L2 Cloud Support &amp; Networking Roles</span>
       </div>
-      <h1>
-        Hi, I'm <span class="gradient-text">Jimit</span>
+
+      <h1 class="hero-title">
+        Hi, I'm <span class="gradient-text">Jimit Shah</span>
       </h1>
+
       <p class="hero-tagline">
-        Cloud Support / L1-L2 Engineer &nbsp;·&nbsp; AWS SAA-C03 in progress<br/>
-        Building labs, breaking things on purpose, and documenting every fix.
+        Cloud Support / L1-L2 Engineer <span class="tagline-sep">|</span> AWS SAA-C03 in progress
       </p>
+
+      <p class="hero-subtext">
+        Practicing structured break/fix incident response in live AWS environments, writing repeatable runbooks, and building automated system health monitors.
+      </p>
+
+      <!-- Terminal / Ops Pill -->
+      <div class="ops-pill" aria-label="Quick operations summary">
+        <span class="ops-dot red"></span>
+        <span class="ops-dot yellow"></span>
+        <span class="ops-dot green"></span>
+        <span class="ops-code">aws ec2 describe-instances --filters "Name=tag:Role,Values=L1-L2-Support"</span>
+      </div>
+
       <div class="hero-buttons">
-        <a href="./resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        <a href="./Jimit_Shah_Resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -89,58 +111,79 @@
             <line x1="16" y1="13" x2="8" y2="13"/>
             <line x1="16" y1="17" x2="8" y2="17"/>
           </svg>
-          Resume
+          View Resume
         </a>
+
         <a href="https://github.com/jimitshah07" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 0 0-1.33-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.24 2.56 2.56 0 0 1 .76-1.6c-2.67-.3-5.47-1.33-5.47-5.93a4.64 4.64 0 0 1 1.24-3.22 4.3 4.3 0 0 1 .12-3.18s1-.32 3.3 1.23a11.38 11.38 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23a4.3 4.3 0 0 1 .12 3.18 4.64 4.64 0 0 1 1.23 3.22c0 4.61-2.81 5.63-5.48 5.92a2.86 2.86 0 0 1 .82 2.23v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/>
+            <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 0 0-1.33-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.24 2.56 2.56 0 0 1 3.5 1 2.56 2.56 0 0 1 .76-1.6c-2.67-.3-5.47-1.33-5.47-5.93a4.64 4.64 0 0 1 1.24-3.22 4.3 4.3 0 0 1 .12-3.18s1-.32 3.3 1.23a11.38 11.38 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23a4.3 4.3 0 0 1 .12 3.18 4.64 4.64 0 0 1 1.23 3.22c0 4.61-2.81 5.63-5.48 5.92a2.86 2.86 0 0 1 .82 2.23v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/>
           </svg>
           GitHub
         </a>
+
         <a href="https://www.linkedin.com/in/jimit-shah-bb9926302" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.76 1.76 0 0 0 24 22.27V1.73A1.76 1.76 0 0 0 22.22 0z"/>
           </svg>
           LinkedIn
         </a>
+
+        <button class="btn btn-ghost copy-btn" data-email="jimit07cs@gmail.com" aria-label="Copy email address">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+          Copy Email
+        </button>
       </div>
     </div>
   </header>
 
   <!-- ==================== ABOUT ==================== -->
-  <section id="about">
+  <section id="about" class="section-padded">
     <div class="container reveal">
-      <p class="section-label">About Me</p>
-      <h2 class="section-title">Turning incidents into documented runbooks</h2>
-      <div class="about-content">
-        <p class="about-text">
-          I'm a fresher targeting <strong>L1/L2 Cloud Support and Networking roles</strong>.
-          I spend my days building hands-on labs in <strong>AWS</strong>, simulating production incidents,
-          and writing the runbooks I wish existed. I'm currently studying for the
-          <strong>AWS Solutions Architect Associate (SAA-C03)</strong> certification
-          while sharpening my Linux, networking, and Python automation skills.
-          I believe great support engineers don't just fix things — they document every step so the next person is faster.
-        </p>
-        <div class="about-highlights">
-          <div class="highlight-card">
-            <div class="h-icon">☁️</div>
-            <div class="h-value">AWS</div>
-            <div class="h-label">Primary Cloud</div>
+      <div class="section-header">
+        <p class="section-label">// 01. ABOUT</p>
+        <h2 class="section-title">Turning incidents into structured runbooks</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-narrative">
+          <p>
+            I am a fresher actively preparing for <strong>L1/L2 Cloud Support and Networking engineering</strong> roles.
+            Rather than relying solely on theory, I deploy live labs in <strong>AWS</strong> to simulate production-style failures — from broken service daemons to misconfigured Security Groups and storage exhaustion.
+          </p>
+          <p>
+            I focus heavily on operational rigor: recording symptoms, isolating root causes with Linux diagnostic utilities, calculating MTTR (Mean Time to Resolution), and documenting step-by-step resolution runbooks so incidents can be resolved consistently and under SLA limits.
+          </p>
+          <p>
+            Currently completing comprehensive preparation for the <strong>AWS Solutions Architect – Associate (SAA-C03)</strong> exam while expanding my network troubleshooting and Python automation toolsets.
+          </p>
+        </div>
+
+        <div class="about-highlights-grid">
+          <div class="highlight-tile">
+            <div class="tile-icon-box">☁️</div>
+            <div class="tile-metric">AWS Core</div>
+            <div class="tile-desc">EC2, VPC, IAM, S3, CloudWatch</div>
           </div>
-          <div class="highlight-card">
-            <div class="h-icon">🐧</div>
-            <div class="h-value">Linux</div>
-            <div class="h-label">Daily Driver</div>
+
+          <div class="highlight-tile">
+            <div class="tile-icon-box">🐧</div>
+            <div class="tile-metric">Linux Ops</div>
+            <div class="tile-desc">systemd, journalctl, SSH, disk triage</div>
           </div>
-          <div class="highlight-card">
-            <div class="h-icon">🔧</div>
-            <div class="h-value">Break/Fix</div>
-            <div class="h-label">Lab Methodology</div>
+
+          <div class="highlight-tile">
+            <div class="tile-icon-box">⚡</div>
+            <div class="tile-metric">&lt; 3m MTTR</div>
+            <div class="tile-desc">Timed break-to-fix incident drills</div>
           </div>
-          <div class="highlight-card">
-            <div class="h-icon">📝</div>
-            <div class="h-value">Runbooks</div>
-            <div class="h-label">Documentation</div>
+
+          <div class="highlight-tile">
+            <div class="tile-icon-box">📋</div>
+            <div class="tile-metric">Runbooks</div>
+            <div class="tile-desc">Version-controlled SOP documentation</div>
           </div>
         </div>
       </div>
@@ -148,80 +191,108 @@
   </section>
 
   <!-- ==================== SKILLS ==================== -->
-  <section id="skills">
+  <section id="skills" class="section-padded section-alt">
     <div class="container reveal">
-      <p class="section-label">Tech Stack</p>
-      <h2 class="section-title">Skills &amp; Technologies</h2>
-      <p class="section-desc">Tools and technologies I work with regularly in my labs and projects.</p>
+      <div class="section-header">
+        <p class="section-label">// 02. TECHNICAL COMPETENCY</p>
+        <h2 class="section-title">Core Skills &amp; Operational Stack</h2>
+        <p class="section-desc">Technologies practiced in hands-on environments and simulated cloud operations.</p>
+      </div>
 
       <div class="skills-grid">
-        <!-- Cloud -->
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon cloud">☁️</div>
-            <h3>Cloud (AWS)</h3>
+        <!-- Cloud AWS -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon-wrap aws-tint">☁️</div>
+            <div>
+              <h3>Cloud (AWS)</h3>
+              <span class="skill-sub">Infrastructure &amp; Management</span>
+            </div>
           </div>
-          <ul class="skill-list">
-            <li>EC2, S3, VPC</li>
-            <li>IAM &amp; Security Groups</li>
-            <li>CloudWatch</li>
-            <li>Route 53 &amp; ELB basics</li>
+          <ul class="skill-pills">
+            <li>EC2 &amp; EBS</li>
+            <li>VPC &amp; Subnets</li>
+            <li>Security Groups &amp; NACLs</li>
+            <li>IAM Least-Privilege</li>
+            <li>S3 &amp; CloudFront</li>
+            <li>CloudWatch &amp; Alarms</li>
+            <li>Route 53 &amp; ELB</li>
           </ul>
         </div>
 
-        <!-- Linux -->
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon linux">🐧</div>
-            <h3>Linux</h3>
+        <!-- Linux & Sysadmin -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon-wrap linux-tint">🐧</div>
+            <div>
+              <h3>Linux Administration</h3>
+              <span class="skill-sub">Ubuntu &amp; Amazon Linux</span>
+            </div>
           </div>
-          <ul class="skill-list">
-            <li>Ubuntu / Amazon Linux</li>
-            <li>systemd &amp; journalctl</li>
-            <li>File permissions &amp; SSH</li>
-            <li>Bash scripting</li>
+          <ul class="skill-pills">
+            <li>Process Management</li>
+            <li>systemd &amp; Services</li>
+            <li>journalctl &amp; Log Analysis</li>
+            <li>SSH Key Pair Auth</li>
+            <li>Permissions &amp; Ownership</li>
+            <li>Disk Usage (df, du, fdisk)</li>
+            <li>Nginx Web Server</li>
           </ul>
         </div>
 
         <!-- Networking -->
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon net">🌐</div>
-            <h3>Networking</h3>
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon-wrap net-tint">🌐</div>
+            <div>
+              <h3>Networking</h3>
+              <span class="skill-sub">Protocols &amp; Diagnostics</span>
+            </div>
           </div>
-          <ul class="skill-list">
-            <li>TCP/IP, DNS, HTTP/S</li>
-            <li>Subnetting &amp; CIDR</li>
-            <li>Firewalls &amp; NACLs</li>
-            <li>Wireshark basics</li>
+          <ul class="skill-pills">
+            <li>TCP/IP &amp; OSI Model</li>
+            <li>DNS, DHCP, HTTP/S</li>
+            <li>CIDR Subnet Calculation</li>
+            <li>Route Tables &amp; NAT</li>
+            <li>Port Scanning &amp; Firewalls</li>
+            <li>curl, dig, traceroute, ping</li>
           </ul>
         </div>
 
-        <!-- Python / Scripting -->
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon code">🐍</div>
-            <h3>Python / Scripting</h3>
+        <!-- Python & Automation -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon-wrap py-tint">🐍</div>
+            <div>
+              <h3>Scripting &amp; Automation</h3>
+              <span class="skill-sub">Tooling &amp; Monitoring</span>
+            </div>
           </div>
-          <ul class="skill-list">
+          <ul class="skill-pills">
             <li>Python 3</li>
-            <li>psutil, boto3</li>
-            <li>Flask (basics)</li>
-            <li>Bash automation</li>
+            <li>psutil System Library</li>
+            <li>Bash Shell Scripting</li>
+            <li>REST APIs &amp; Webhooks</li>
+            <li>Flask Operational Dashboards</li>
+            <li>Scheduled Tasks (cron)</li>
           </ul>
         </div>
 
-        <!-- Tools -->
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <div class="skill-group-icon tools">🛠️</div>
-            <h3>Tools</h3>
+        <!-- Tools & Practices -->
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon-wrap tool-tint">🛠️</div>
+            <div>
+              <h3>Tools &amp; Workflow</h3>
+              <span class="skill-sub">Collaboration &amp; Docs</span>
+            </div>
           </div>
-          <ul class="skill-list">
+          <ul class="skill-pills">
             <li>Git &amp; GitHub</li>
             <li>GitHub CLI (gh)</li>
+            <li>Markdown Documentation</li>
             <li>VS Code</li>
-            <li>Markdown docs</li>
+            <li>Incident Runbook SOPs</li>
           </ul>
         </div>
       </div>
@@ -229,105 +300,93 @@
   </section>
 
   <!-- ==================== PROJECTS ==================== -->
-  <section id="projects">
+  <section id="projects" class="section-padded">
     <div class="container reveal">
-      <p class="section-label">Projects</p>
-      <h2 class="section-title">What I've Built</h2>
-      <p class="section-desc">Hands-on labs and tools — each solving a real problem I'd face on the job.</p>
+      <div class="section-header">
+        <p class="section-label">// 03. HANDS-ON PROJECTS</p>
+        <h2 class="section-title">Operational Labs &amp; Case Studies</h2>
+        <p class="section-desc">Each project solves a concrete support problem with documented root-cause analysis and code repositories.</p>
+      </div>
 
-      <!-- Cards rendered by script.js from the projects array -->
+      <!-- Rendered dynamically from script.js -->
       <div class="projects-grid" id="projects-grid"></div>
     </div>
   </section>
 
-  <!-- ==================== CERTIFICATIONS ==================== -->
-  <section id="certifications">
-    <div class="container reveal">
-      <p class="section-label">Certifications &amp; Learning</p>
-      <h2 class="section-title">Credentials &amp; Roadmap</h2>
-      <p class="section-desc">Active certifications and what's next on the study plan.</p>
-
-      <div class="certs-list">
-        <div class="cert-card">
-          <div class="cert-icon">🏅</div>
-          <div class="cert-info">
-            <h3>AWS Solutions Architect Associate</h3>
-            <p>SAA-C03 · Amazon Web Services</p>
-            <span class="cert-status in-progress">⏳ In Progress</span>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon">🎯</div>
-          <div class="cert-info">
-            <h3>Cisco CCNA</h3>
-            <p>200-301 · Cisco Systems</p>
-            <span class="cert-status planned">📋 Planned</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ==================== CONTACT ==================== -->
-  <section id="contact">
+  <section id="contact" class="section-padded section-alt">
     <div class="container reveal">
-      <p class="section-label">Get in Touch</p>
-      <h2 class="section-title">Let's Connect</h2>
-      <p class="section-desc">Open to L1/L2 Cloud Support and Networking opportunities. Feel free to reach out!</p>
+      <div class="section-header text-center">
+        <p class="section-label">// 04. GET IN TOUCH</p>
+        <h2 class="section-title">Ready for Incident Triage &amp; Cloud Support</h2>
+        <p class="section-desc">Actively interviewing for full-time L1/L2 Cloud Support, Operations, and Networking roles.</p>
+      </div>
 
-      <div class="contact-grid">
-        <!-- Email -->
-        <div class="contact-card">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                 stroke-linecap="round" stroke-linejoin="round">
+      <div class="contact-cards-container">
+        <!-- Email Card -->
+        <div class="contact-box">
+          <div class="contact-box-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
           </div>
-          <div class="contact-info">
-            <p class="c-label">Email</p>
-            <a href="mailto:jimit07cs@gmail.com">jimit07cs@gmail.com</a>
+          <div class="contact-box-content">
+            <span class="contact-box-label">Email Address</span>
+            <a href="mailto:jimit07cs@gmail.com" class="contact-box-link">jimit07cs@gmail.com</a>
           </div>
+          <button class="copy-btn mini-copy" data-email="jimit07cs@gmail.com" title="Copy email">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copy
+          </button>
         </div>
 
-        <!-- LinkedIn -->
-        <div class="contact-card">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <!-- LinkedIn Card -->
+        <a href="https://www.linkedin.com/in/jimit-shah-bb9926302" target="_blank" rel="noopener noreferrer" class="contact-box">
+          <div class="contact-box-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
               <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77A1.75 1.75 0 0 0 0 1.73v20.54A1.75 1.75 0 0 0 1.77 24h20.45A1.76 1.76 0 0 0 24 22.27V1.73A1.76 1.76 0 0 0 22.22 0z"/>
             </svg>
           </div>
-          <div class="contact-info">
-            <p class="c-label">LinkedIn</p>
-            <a href="https://www.linkedin.com/in/jimit-shah-bb9926302" target="_blank" rel="noopener noreferrer">linkedin.com/in/jimit-shah-bb9926302</a>
+          <div class="contact-box-content">
+            <span class="contact-box-label">LinkedIn</span>
+            <span class="contact-box-link">linkedin.com/in/jimit-shah-bb9926302</span>
           </div>
-        </div>
+          <span class="contact-box-arrow">↗</span>
+        </a>
 
-        <!-- GitHub -->
-        <div class="contact-card">
-          <div class="contact-icon">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <!-- GitHub Card -->
+        <a href="https://github.com/jimitshah07" target="_blank" rel="noopener noreferrer" class="contact-box">
+          <div class="contact-box-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
               <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 0 0-1.33-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.24 2.56 2.56 0 0 0 3.5 1 2.56 2.56 0 0 1 .76-1.6c-2.67-.3-5.47-1.33-5.47-5.93a4.64 4.64 0 0 1 1.24-3.22 4.3 4.3 0 0 1 .12-3.18s1-.32 3.3 1.23a11.38 11.38 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23a4.3 4.3 0 0 1 .12 3.18 4.64 4.64 0 0 1 1.23 3.22c0 4.61-2.81 5.63-5.48 5.92a2.86 2.86 0 0 1 .82 2.23v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/>
             </svg>
           </div>
-          <div class="contact-info">
-            <p class="c-label">GitHub</p>
-            <a href="https://github.com/jimitshah07" target="_blank" rel="noopener noreferrer">github.com/jimitshah07</a>
+          <div class="contact-box-content">
+            <span class="contact-box-label">GitHub</span>
+            <span class="contact-box-link">github.com/jimitshah07</span>
           </div>
-        </div>
+          <span class="contact-box-arrow">↗</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Jimit. Built with plain HTML, CSS &amp; JS.</p>
+    <div class="container footer-container">
+      <div class="footer-left">
+        <p class="footer-copy">© 2026 Jimit Shah · Built for Cloud Support &amp; Networking Roles</p>
+        <p class="footer-sub">Zero build step · Vanilla HTML, CSS &amp; JavaScript · GitHub Pages Ready</p>
+      </div>
       <div class="footer-links">
+        <a href="./Jimit_Shah_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         <a href="https://github.com/jimitshah07" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/jimit-shah-bb9926302" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="#contact">Contact</a>
+        <a href="#hero">Back to top ↑</a>
       </div>
     </div>
   </footer>

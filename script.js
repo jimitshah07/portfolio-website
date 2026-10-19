@@ -1,30 +1,34 @@
 /* ============================================================
-   projects.js — add a new card by pushing one object
+   projects.js — Data-driven projects with L1/L2 Runbook metadata
    ============================================================ */
 const projects = [
   {
+    badge: "LAB-01 // BREAK-FIX DRILL",
     title: "L1/L2 Troubleshooting Runbook",
+    metric: "MTTR: < 3 min resolution",
     problem:
-      "Production-like incidents (nginx crash, SSH lockout via Security Group, disk full) need fast, repeatable fixes — but most juniors lack a structured runbook.",
+      "Production-like incidents (nginx crash, SSH lockout via stale Security Group rule, disk-full condition) need fast, repeatable root-cause resolution — but fresh engineers rarely possess documented operational experience.",
     solution:
-      "Built an AWS EC2 (Ubuntu) lab with deliberate break/fix scenarios, timed each resolution, and documented a step-by-step runbook.",
-    tech: ["AWS EC2", "Ubuntu", "Nginx", "Security Groups", "Bash"],
+      "Engineered an AWS EC2 (Ubuntu t2.micro) break/fix lab. Simulated real incidents, measured resolution times, and documented symptoms, diagnosis commands, root cause, fix, and post-incident verification in a version-controlled runbook.",
+    tech: ["AWS EC2", "Ubuntu", "Nginx", "Security Groups", "Bash", "systemd"],
     github: "https://github.com/jimitshah07/l1l2-troubleshooting-runbook",
     docs: "https://github.com/jimitshah07/l1l2-troubleshooting-runbook#readme",
   },
   {
-    title: "System Health Monitor",
+    badge: "SYS-02 // AUTOMATION & ALERTING",
+    title: "System Health Monitor & Dashboard",
+    metric: "Slack & SMTP Alerting",
     problem:
-      "Manually checking server metrics is error-prone and doesn't scale — teams need automated monitoring with real-time alerts.",
+      "Manual system checks fail to catch intermittent resource exhaustion, leading to unpredicted service outages and delayed incident response.",
     solution:
-      "Python + psutil service that logs CPU/memory/disk/network to CSV on a schedule, fires threshold alerts via SMTP email & Slack webhook, and exposes a Flask dashboard.",
-    tech: ["Python", "psutil", "Flask", "SMTP", "Slack API", "CSV"],
+      "Developed a Python + psutil monitoring daemon logging CPU, memory, disk, and network I/O. Added automatic threshold-based alerts via SMTP email and Slack incoming webhooks, paired with a lightweight Flask operational dashboard.",
+    tech: ["Python", "psutil", "Flask", "Slack Webhook", "SMTP", "Linux Cron"],
     github: "https://github.com/jimitshah07/system-health-monitor",
     docs: "https://github.com/jimitshah07/system-health-monitor#readme",
   },
 ];
 
-/* ---- render project cards ---- */
+/* ---- Render Project Cards ---- */
 function renderProjects() {
   const grid = document.getElementById("projects-grid");
   if (!grid) return;
@@ -33,26 +37,41 @@ function renderProjects() {
     .map(
       (p) => `
     <article class="project-card">
+      <div class="card-top-bar">
+        <span class="card-badge">${p.badge}</span>
+        <span class="card-metric">${p.metric}</span>
+      </div>
       <div class="card-header">
-        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-        </svg>
-        <h3>${p.title}</h3>
+        <div class="card-title-wrap">
+          <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+            <line x1="6" y1="6" x2="6.01" y2="6"/>
+            <line x1="6" y1="18" x2="6.01" y2="18"/>
+          </svg>
+          <h3>${p.title}</h3>
+        </div>
       </div>
       <div class="card-body">
-        <p><strong>Problem:</strong> ${p.problem}</p>
-        <p><strong>Solution:</strong> ${p.solution}</p>
+        <div class="case-section">
+          <span class="case-label">Problem</span>
+          <p>${p.problem}</p>
+        </div>
+        <div class="case-section">
+          <span class="case-label">Engineering Solution</span>
+          <p>${p.solution}</p>
+        </div>
         <div class="tech-tags">
           ${p.tech.map((t) => `<span class="tag">${t}</span>`).join("")}
         </div>
       </div>
       <div class="card-links">
-        <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="card-link">
+        <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="card-link primary-link">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
             <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61a3.18 3.18 0 0 0-1.33-1.76c-1.09-.74.08-.73.08-.73a2.52 2.52 0 0 1 1.84 1.24 2.56 2.56 0 0 0 3.5 1 2.56 2.56 0 0 1 .76-1.6c-2.67-.3-5.47-1.33-5.47-5.93a4.64 4.64 0 0 1 1.24-3.22 4.3 4.3 0 0 1 .12-3.18s1-.32 3.3 1.23a11.38 11.38 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23a4.3 4.3 0 0 1 .12 3.18 4.64 4.64 0 0 1 1.23 3.22c0 4.61-2.81 5.63-5.48 5.92a2.86 2.86 0 0 1 .82 2.23v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/>
           </svg>
-          Code
+          Repository
         </a>
         <a href="${p.docs}" target="_blank" rel="noopener noreferrer" class="card-link">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
@@ -63,7 +82,7 @@ function renderProjects() {
             <line x1="16" y1="17" x2="8" y2="17"/>
             <polyline points="10 9 9 9 8 9"/>
           </svg>
-          Docs
+          Runbook / Docs
         </a>
       </div>
     </article>`
@@ -71,31 +90,33 @@ function renderProjects() {
     .join("");
 }
 
-/* ---- theme toggle ---- */
+/* ---- Theme Toggle ---- */
 function initTheme() {
   const toggle = document.getElementById("theme-toggle");
+  if (!toggle) return;
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const stored = localStorage.getItem("theme");
 
   if (stored === "dark" || (!stored && prefersDark)) {
     document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
   }
 
   toggle.addEventListener("click", () => {
     const isDark =
       document.documentElement.getAttribute("data-theme") === "dark";
-    document.documentElement.setAttribute(
-      "data-theme",
-      isDark ? "light" : "dark"
-    );
-    localStorage.setItem("theme", isDark ? "light" : "dark");
+    const nextTheme = isDark ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem("theme", nextTheme);
   });
 }
 
-/* ---- mobile nav ---- */
+/* ---- Mobile Navigation ---- */
 function initMobileNav() {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("nav-links");
+  if (!hamburger || !navLinks) return;
 
   hamburger.addEventListener("click", () => {
     navLinks.classList.toggle("open");
@@ -105,7 +126,6 @@ function initMobileNav() {
     );
   });
 
-  // close menu on link click
   navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
@@ -114,20 +134,22 @@ function initMobileNav() {
   });
 }
 
-/* ---- smooth scroll ---- */
+/* ---- Smooth Scroll with Offset ---- */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute("href"));
+      const targetId = anchor.getAttribute("href");
+      if (targetId === "#") return;
+      const target = document.querySelector(targetId);
       if (target) {
+        e.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   });
 }
 
-/* ---- scroll-triggered fade-in ---- */
+/* ---- Intersection Observer Reveal ---- */
 function initScrollReveal() {
   const observer = new IntersectionObserver(
     (entries) => {
@@ -138,16 +160,17 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.08 }
   );
 
   document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 }
 
-/* ---- active nav highlight on scroll ---- */
+/* ---- Active Navigation on Scroll ---- */
 function initActiveNav() {
   const sections = document.querySelectorAll("section[id]");
   const navItems = document.querySelectorAll(".nav-links a");
+  if (!sections.length || !navItems.length) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -161,13 +184,40 @@ function initActiveNav() {
         }
       });
     },
-    { rootMargin: "-40% 0px -60% 0px" }
+    { rootMargin: "-30% 0px -60% 0px" }
   );
 
   sections.forEach((s) => observer.observe(s));
 }
 
-/* ---- boot ---- */
+/* ---- Copy Email Functionality ---- */
+function initCopyEmail() {
+  const copyBtns = document.querySelectorAll(".copy-btn");
+  copyBtns.forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const email = btn.getAttribute("data-email") || "jimit07cs@gmail.com";
+      try {
+        await navigator.clipboard.writeText(email);
+        const originalText = btn.innerHTML;
+        btn.classList.add("copied");
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Copied!
+        `;
+        setTimeout(() => {
+          btn.classList.remove("copied");
+          btn.innerHTML = originalText;
+        }, 2200);
+      } catch (err) {
+        console.error("Clipboard copy failed", err);
+      }
+    });
+  });
+}
+
+/* ---- Boot Application ---- */
 document.addEventListener("DOMContentLoaded", () => {
   renderProjects();
   initTheme();
@@ -175,4 +225,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initSmoothScroll();
   initScrollReveal();
   initActiveNav();
+  initCopyEmail();
 });
