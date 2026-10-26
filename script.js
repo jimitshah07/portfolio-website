@@ -38,6 +38,18 @@ const projects = [
     github: "https://github.com/jimitshah07/system-health-monitor",
     docs: "https://github.com/jimitshah07/system-health-monitor#readme",
   },
+  {
+    badge: "PLT-04 // CLOUD PLATFORM",
+    title: "CloudForge — Secure AWS Infrastructure & Application Delivery Platform",
+    metric: "Git · GitLab CI/CD · AWS · Terraform",
+    problem:
+      "Building production-grade cloud platforms requires mastering the full DevOps lifecycle — from version-controlled source management through automated CI/CD pipelines to provisioned, secure AWS infrastructure — as a cohesive, repeatable system.",
+    solution:
+      "Architecting CloudForge as an end-to-end cloud delivery platform: establishing Git workflows (branching, merging, remotes), configuring a GitLab CI/CD pipeline (test → build → deploy stages), and incrementally provisioning secure AWS infrastructure using Terraform. Incorporates cloud security best practices and structured documentation throughout each stage.",
+    tech: ["Git", "GitHub", "GitLab CI/CD", "AWS", "Terraform", "Linux", "Docker"],
+    github: "https://github.com/jimitshah07/CloudForge",
+    docs: "https://github.com/jimitshah07/CloudForge#readme",
+  },
 ];
 
 /* ---- Render Project Cards ---- */
